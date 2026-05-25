@@ -62,27 +62,27 @@ function ReservationPage() {
 
       <form className="mt-5 grid gap-3 md:grid-cols-4" onSubmit={searchSchedules}>
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           placeholder="Source"
           value={search.source}
           onChange={(event) => setSearch({ ...search, source: event.target.value })}
           required
         />
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           placeholder="Destination"
           value={search.destination}
           onChange={(event) => setSearch({ ...search, destination: event.target.value })}
           required
         />
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           type="date"
           value={search.departure_date}
           onChange={(event) => setSearch({ ...search, departure_date: event.target.value })}
           required
         />
-        <button className="rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700" type="submit">
+        <button className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700" type="submit">
           Search Available Buses
         </button>
       </form>
@@ -90,7 +90,7 @@ function ReservationPage() {
       <h3 className="mt-8 text-lg font-semibold">Available Schedules</h3>
       <div className="mt-3 overflow-x-auto">
       <table className="w-full border-collapse text-left text-sm">
-        <thead className="bg-slate-100">
+        <thead className="bg-gray-100">
           <tr>
             <th className="border px-3 py-2">Schedule ID</th>
             <th className="border px-3 py-2">Bus</th>
@@ -111,7 +111,7 @@ function ReservationPage() {
               <td className="border px-3 py-2">{schedule.price}</td>
               <td className="border px-3 py-2">{schedule.available_seats}</td>
               <td className="border px-3 py-2">
-                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-500" onClick={() => chooseSchedule(schedule)}>Select</button>
+                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-700" onClick={() => chooseSchedule(schedule)}>Select</button>
               </td>
             </tr>
           ))}
@@ -120,9 +120,9 @@ function ReservationPage() {
       </div>
 
       {selectedSchedule && (
-        <div className="mt-8 rounded border border-slate-200 p-5">
+        <div className="mt-8 rounded border border-gray-200 p-5">
           <h3 className="text-lg font-semibold">Reserve Seat</h3>
-          <p className="mt-1 text-sm text-slate-600">
+          <p className="mt-1 text-sm text-gray-600">
             Selected: {selectedSchedule.source} to {selectedSchedule.destination},
             Bus {selectedSchedule.plate_number},
             Price {selectedSchedule.price}
@@ -130,7 +130,7 @@ function ReservationPage() {
 
           <form className="mt-4 grid gap-3 md:grid-cols-3" onSubmit={reserveSeat}>
             <input
-              className="rounded border border-slate-300 px-3 py-2"
+              className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               placeholder="Customer name"
               value={reservation.customer_name}
               onChange={(event) => setReservation({ ...reservation, customer_name: event.target.value })}
@@ -138,7 +138,7 @@ function ReservationPage() {
             />
 
             <select
-              className="rounded border border-slate-300 px-3 py-2"
+              className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               value={reservation.seat_number}
               onChange={(event) => setReservation({ ...reservation, seat_number: event.target.value })}
               required
@@ -155,7 +155,7 @@ function ReservationPage() {
               ))}
             </select>
 
-            <button className="rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700" type="submit">
+            <button className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700" type="submit">
               Reserve Ticket
             </button>
           </form>

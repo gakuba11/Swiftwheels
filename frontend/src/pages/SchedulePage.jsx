@@ -73,7 +73,7 @@ function SchedulePage() {
 
       <form className="mt-5 grid gap-3 md:grid-cols-5" onSubmit={handleSubmit}>
         <select
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           value={form.bus_id}
           onChange={(event) => setForm({ ...form, bus_id: event.target.value })}
           required
@@ -87,7 +87,7 @@ function SchedulePage() {
         </select>
 
         <select
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           value={form.r_id}
           onChange={(event) => setForm({ ...form, r_id: event.target.value })}
           required
@@ -101,24 +101,24 @@ function SchedulePage() {
         </select>
 
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           type="datetime-local"
           value={form.departure_time}
           onChange={(event) => setForm({ ...form, departure_time: event.target.value })}
           required
         />
 
-        <button className="rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700" type="submit">
+        <button className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700" type="submit">
           {editingId ? 'Update Schedule' : 'Create Schedule'}
         </button>
-        <button className="rounded border border-slate-300 px-4 py-2 font-semibold hover:bg-slate-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
+        <button className="rounded border border-gray-300 px-4 py-2 font-semibold text-gray-700 hover:bg-gray-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
           Clear
         </button>
       </form>
 
       <div className="mt-6 overflow-x-auto">
       <table className="w-full border-collapse text-left text-sm">
-        <thead className="bg-slate-100">
+        <thead className="bg-gray-100">
           <tr>
             <th className="border px-3 py-2">ID</th>
             <th className="border px-3 py-2">Bus</th>
@@ -141,7 +141,7 @@ function SchedulePage() {
               <td className="border px-3 py-2">{schedule.booked_seats}</td>
               <td className="border px-3 py-2">{schedule.available_seats}</td>
               <td className="space-x-2 border px-3 py-2">
-                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-500" onClick={() => editSchedule(schedule)}>Edit</button>
+                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-700" onClick={() => editSchedule(schedule)}>Edit</button>
                 <button className="rounded bg-red-600 px-3 py-1 text-white hover:bg-red-500" onClick={() => deleteSchedule(schedule.sch_id)}>Delete</button>
               </td>
             </tr>

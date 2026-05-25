@@ -58,30 +58,30 @@ function BusPage() {
 
       <form className="mt-5 grid gap-3 md:grid-cols-4" onSubmit={handleSubmit}>
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           placeholder="Plate number"
           value={form.plate_number}
           onChange={(event) => setForm({ ...form, plate_number: event.target.value })}
           required
         />
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           type="number"
           placeholder="Total seats"
           value={form.total_seats}
           onChange={(event) => setForm({ ...form, total_seats: event.target.value })}
           required
         />
-        <button className="rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700" type="submit">
+        <button className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700" type="submit">
           {editingId ? 'Update Bus' : 'Create Bus'}
         </button>
-        <button className="rounded border border-slate-300 px-4 py-2 font-semibold hover:bg-slate-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
+        <button className="rounded border border-gray-300 px-4 py-2 font-semibold text-gray-700 hover:bg-gray-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
           Clear
         </button>
       </form>
 
       <table className="mt-6 w-full border-collapse overflow-hidden text-left text-sm">
-        <thead className="bg-slate-100">
+        <thead className="bg-gray-100">
           <tr>
             <th className="border px-3 py-2">ID</th>
             <th className="border px-3 py-2">Plate Number</th>
@@ -96,7 +96,7 @@ function BusPage() {
               <td className="border px-3 py-2">{bus.plate_number}</td>
               <td className="border px-3 py-2">{bus.total_seats}</td>
               <td className="space-x-2 border px-3 py-2">
-                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-500" onClick={() => editBus(bus)}>Edit</button>
+                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-700" onClick={() => editBus(bus)}>Edit</button>
                 <button className="rounded bg-red-600 px-3 py-1 text-white hover:bg-red-500" onClick={() => deleteBus(bus.bus_id)}>Delete</button>
               </td>
             </tr>

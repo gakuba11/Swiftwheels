@@ -59,21 +59,21 @@ function RoutePage() {
 
       <form className="mt-5 grid gap-3 md:grid-cols-5" onSubmit={handleSubmit}>
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           placeholder="Source"
           value={form.source}
           onChange={(event) => setForm({ ...form, source: event.target.value })}
           required
         />
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           placeholder="Destination"
           value={form.destination}
           onChange={(event) => setForm({ ...form, destination: event.target.value })}
           required
         />
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           type="number"
           step="0.01"
           placeholder="Price"
@@ -81,16 +81,16 @@ function RoutePage() {
           onChange={(event) => setForm({ ...form, price: event.target.value })}
           required
         />
-        <button className="rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700" type="submit">
+        <button className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700" type="submit">
           {editingId ? 'Update Route' : 'Create Route'}
         </button>
-        <button className="rounded border border-slate-300 px-4 py-2 font-semibold hover:bg-slate-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
+        <button className="rounded border border-gray-300 px-4 py-2 font-semibold text-gray-700 hover:bg-gray-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
           Clear
         </button>
       </form>
 
       <table className="mt-6 w-full border-collapse text-left text-sm">
-        <thead className="bg-slate-100">
+        <thead className="bg-gray-100">
           <tr>
             <th className="border px-3 py-2">ID</th>
             <th className="border px-3 py-2">Source</th>
@@ -107,7 +107,7 @@ function RoutePage() {
               <td className="border px-3 py-2">{route.destination}</td>
               <td className="border px-3 py-2">{route.price}</td>
               <td className="space-x-2 border px-3 py-2">
-                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-500" onClick={() => editRoute(route)}>Edit</button>
+                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-700" onClick={() => editRoute(route)}>Edit</button>
                 <button className="rounded bg-red-600 px-3 py-1 text-white hover:bg-red-500" onClick={() => deleteRoute(route.r_id)}>Delete</button>
               </td>
             </tr>

@@ -73,7 +73,7 @@ function TicketPage() {
 
       <form className="mt-5 grid gap-3 md:grid-cols-5" onSubmit={handleSubmit}>
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           placeholder="Customer name"
           value={form.customer_name}
           onChange={(event) => setForm({ ...form, customer_name: event.target.value })}
@@ -81,7 +81,7 @@ function TicketPage() {
         />
 
         <select
-          className="rounded border border-slate-300 px-3 py-2 md:col-span-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none md:col-span-2"
           value={form.sch_id}
           onChange={(event) => setForm({ ...form, sch_id: event.target.value })}
           required
@@ -95,7 +95,7 @@ function TicketPage() {
         </select>
 
         <input
-          className="rounded border border-slate-300 px-3 py-2"
+          className="rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
           type="number"
           placeholder="Seat number"
           value={form.seat_number}
@@ -103,17 +103,17 @@ function TicketPage() {
           required
         />
 
-        <button className="rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700" type="submit">
+        <button className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700" type="submit">
           {editingId ? 'Update Ticket' : 'Create Ticket'}
         </button>
-        <button className="rounded border border-slate-300 px-4 py-2 font-semibold hover:bg-slate-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
+        <button className="rounded border border-gray-300 px-4 py-2 font-semibold text-gray-700 hover:bg-gray-50" type="button" onClick={() => { setForm(emptyForm); setEditingId(null); }}>
           Clear
         </button>
       </form>
 
       <div className="mt-6 overflow-x-auto">
       <table className="w-full border-collapse text-left text-sm">
-        <thead className="bg-slate-100">
+        <thead className="bg-gray-100">
           <tr>
             <th className="border px-3 py-2">ID</th>
             <th className="border px-3 py-2">Customer</th>
@@ -136,7 +136,7 @@ function TicketPage() {
               <td className="border px-3 py-2">{ticket.seat_number}</td>
               <td className="border px-3 py-2">{ticket.price}</td>
               <td className="space-x-2 border px-3 py-2">
-                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-500" onClick={() => editTicket(ticket)}>Edit</button>
+                <button className="rounded bg-blue-600 px-3 py-1 text-white hover:bg-blue-700" onClick={() => editTicket(ticket)}>Edit</button>
                 <button className="rounded bg-red-600 px-3 py-1 text-white hover:bg-red-500" onClick={() => deleteTicket(ticket.ticket_id)}>Delete</button>
               </td>
             </tr>

@@ -42,22 +42,22 @@ function AuthPage({ onAuth }) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900">
+    <div className="min-h-screen bg-gray-50 px-4 py-10 text-gray-900">
       <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow">
-        <h1 className="text-2xl font-bold">SwiftWheels</h1>
-        <p className="mt-1 text-sm text-slate-600">
+        <h1 className="text-2xl font-bold text-blue-700">SwiftWheels</h1>
+        <p className="mt-1 text-sm text-gray-600">
           Customers reserve tickets. Fleet managers manage buses, routes and schedules.
         </p>
 
-        <div className="mt-6 grid grid-cols-2 rounded bg-slate-100 p-1">
+        <div className="mt-6 grid grid-cols-2 rounded bg-gray-100 p-1">
           <button
-            className={`rounded px-4 py-2 text-sm font-semibold ${mode === 'login' ? 'bg-white shadow' : ''}`}
+            className={`rounded px-4 py-2 text-sm font-semibold ${mode === 'login' ? 'bg-white text-blue-700 shadow' : 'text-gray-600'}`}
             onClick={() => setMode('login')}
           >
             Login
           </button>
           <button
-            className={`rounded px-4 py-2 text-sm font-semibold ${mode === 'register' ? 'bg-white shadow' : ''}`}
+            className={`rounded px-4 py-2 text-sm font-semibold ${mode === 'register' ? 'bg-white text-blue-700 shadow' : 'text-gray-600'}`}
             onClick={() => setMode('register')}
           >
             Register
@@ -69,7 +69,7 @@ function AuthPage({ onAuth }) {
         {mode === 'login' ? (
           <form className="mt-6 space-y-4" onSubmit={login}>
             <input
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               type="email"
               placeholder="Email"
               value={loginForm.email}
@@ -77,28 +77,28 @@ function AuthPage({ onAuth }) {
               required
             />
             <input
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               type="password"
               placeholder="Password"
               value={loginForm.password}
               onChange={(event) => setLoginForm({ ...loginForm, password: event.target.value })}
               required
             />
-            <button className="w-full rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700">
+            <button className="w-full rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700">
               Login
             </button>
           </form>
         ) : (
           <form className="mt-6 space-y-4" onSubmit={register}>
             <input
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               placeholder="Full name"
               value={registerForm.full_name}
               onChange={(event) => setRegisterForm({ ...registerForm, full_name: event.target.value })}
               required
             />
             <input
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               type="email"
               placeholder="Email"
               value={registerForm.email}
@@ -106,13 +106,13 @@ function AuthPage({ onAuth }) {
               required
             />
             <input
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               placeholder="Phone"
               value={registerForm.phone}
               onChange={(event) => setRegisterForm({ ...registerForm, phone: event.target.value })}
             />
             <input
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               type="password"
               placeholder="Password"
               value={registerForm.password}
@@ -120,14 +120,14 @@ function AuthPage({ onAuth }) {
               required
             />
             <select
-              className="w-full rounded border border-slate-300 px-3 py-2"
+              className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
               value={registerForm.role}
               onChange={(event) => setRegisterForm({ ...registerForm, role: event.target.value })}
             >
               <option value="customer">customer</option>
               <option value="fleet manager">fleet manager</option>
             </select>
-            <button className="w-full rounded bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-700">
+            <button className="w-full rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700">
               Register
             </button>
           </form>

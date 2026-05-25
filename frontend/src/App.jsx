@@ -43,7 +43,7 @@ function App() {
   };
 
   if (loading) {
-    return <div className="min-h-screen bg-slate-100 p-8">Loading...</div>;
+    return <div className="min-h-screen bg-gray-50 p-8 text-gray-900">Loading...</div>;
   }
 
   if (!user) {
@@ -52,19 +52,25 @@ function App() {
 
   const isFleetManager = user.role === 'fleet manager';
   const visiblePage = isFleetManager ? page : 'reserve';
+  const navClass = (name) =>
+    `rounded px-4 py-2 text-sm font-semibold shadow-sm ${
+      page === name
+        ? 'bg-blue-600 text-white'
+        : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-700'
+    }`;
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
-      <header className="border-b bg-white">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <header className="border-b border-gray-200 bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div>
-            <h1 className="text-2xl font-bold">SwiftWheels Ticket Reservation System</h1>
-            <p className="text-sm text-slate-600">
+            <h1 className="text-2xl font-bold text-blue-700">SwiftWheels Ticket Reservation System</h1>
+            <p className="text-sm text-gray-600">
               Logged in as {user.full_name} ({user.role})
             </p>
           </div>
           <button
-            className="rounded bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700"
+            className="rounded bg-gray-700 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
             onClick={logout}
           >
             Logout
@@ -76,21 +82,21 @@ function App() {
         <nav className="mb-6 flex flex-wrap gap-2">
           {isFleetManager ? (
             <>
-              <button className="rounded bg-white px-4 py-2 shadow-sm hover:bg-slate-50" onClick={() => setPage('buses')}>
+              <button className={navClass('buses')} onClick={() => setPage('buses')}>
                 Register Buses
               </button>
-              <button className="rounded bg-white px-4 py-2 shadow-sm hover:bg-slate-50" onClick={() => setPage('routes')}>
+              <button className={navClass('routes')} onClick={() => setPage('routes')}>
                 Setup Routes
               </button>
-              <button className="rounded bg-white px-4 py-2 shadow-sm hover:bg-slate-50" onClick={() => setPage('schedules')}>
+              <button className={navClass('schedules')} onClick={() => setPage('schedules')}>
                 Assign Buses To Routes
               </button>
-              <button className="rounded bg-white px-4 py-2 shadow-sm hover:bg-slate-50" onClick={() => setPage('tickets')}>
+              <button className={navClass('tickets')} onClick={() => setPage('tickets')}>
                 Ticket Records
               </button>
             </>
           ) : (
-            <span className="rounded bg-white px-4 py-2 text-sm font-semibold shadow-sm">
+            <span className="rounded bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm">
               Customer Ticket Reservation
             </span>
           )}
